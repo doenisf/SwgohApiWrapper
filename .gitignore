@@ -4,4 +4,4 @@
 /.idea
 
 /src/main/java/help/swgoh/tryout
-/src/main/resources/testingResources/*
+/src/main/resources/testingResources/
