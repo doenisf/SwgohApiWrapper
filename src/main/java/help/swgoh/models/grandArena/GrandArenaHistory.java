@@ -14,7 +14,7 @@ public class GrandArenaHistory {
     private String league;
     private int wins;
     private int losses;
-    private boolean eliteDevision;
+    private boolean eliteDivision;
     private int seasonPoints;
     private int division;
     private long joinTime;
@@ -62,12 +62,12 @@ public class GrandArenaHistory {
         this.losses = losses;
     }
 
-    public boolean isEliteDevision() {
-        return eliteDevision;
+    public boolean isEliteDivision() {
+        return eliteDivision;
     }
 
-    public void setEliteDevision(boolean eliteDevision) {
-        this.eliteDevision = eliteDevision;
+    public void setEliteDivision(boolean eliteDivision) {
+        this.eliteDivision = eliteDivision;
     }
 
     public int getSeasonPoints() {
