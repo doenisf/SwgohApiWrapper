@@ -1,14 +1,18 @@
 package help.swgoh.models.player;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import help.swgoh.models.arena.PlayerArenaStats;
 import help.swgoh.models.grandArena.GrandArenaHistory;
 import help.swgoh.models.toon.Toon;
 
+import java.util.Arrays;
+
 /**
  * This class represents all data associated with a player in SWGOH.
  *
- * @since 1.0.0
  * @author doenisf
+ * @since 1.0.0
  */
 public class Player {
 
@@ -20,7 +24,7 @@ public class Player {
     private String guildRefId;
     private String guildName;
     private String guildBannerColor;
-    private String getGuildBannerLogo;
+    private String guildBannerLogo;
     private String guildTypeId;
     private Stat[] stats;
     private Toon[] roster;
@@ -31,6 +35,39 @@ public class Player {
     private GrandArenaHistory[] grandArena;
     private int grandArenaLifetime;
     private long updated;
+
+    /*
+    @JsonCreator
+    public Player(int allyCode, String id, String name,
+                  int level, Titles titles, String guildRefId,
+                  String guildName, String guildBannerColor,
+                  String getGuildBannerLogo, String guildTypeId,
+                  Stat[] stats, Toon[] roster, PlayerArenaStats arena,
+                  long lastActivity, int poUTCOffsetMinutes,
+                  Portraits portraits, GrandArenaHistory[] grandArena,
+                  int grandArenaLifetime, long updated) {
+        this.allyCode = allyCode;
+        this.id = id;
+        this.name = name;
+        this.level = level;
+        this.titles = titles;
+        this.guildRefId = guildRefId;
+        this.guildName = guildName;
+        this.guildBannerColor = guildBannerColor;
+        this.getGuildBannerLogo = getGuildBannerLogo;
+        this.guildTypeId = guildTypeId;
+        this.stats = stats;
+        this.roster = roster;
+        this.arena = arena;
+        this.lastActivity = lastActivity;
+        this.poUTCOffsetMinutes = poUTCOffsetMinutes;
+        this.portraits = portraits;
+        this.grandArena = grandArena;
+        this.grandArenaLifetime = grandArenaLifetime;
+        this.updated = updated;
+    }
+
+     */
 
     public int getAllyCode() {
         return allyCode;
@@ -96,12 +133,12 @@ public class Player {
         this.guildBannerColor = guildBannerColor;
     }
 
-    public String getGetGuildBannerLogo() {
-        return getGuildBannerLogo;
+    public String getGuildBannerLogo() {
+        return guildBannerLogo;
     }
 
-    public void setGetGuildBannerLogo(String getGuildBannerLogo) {
-        this.getGuildBannerLogo = getGuildBannerLogo;
+    public void setGetGuildBannerLogo(String guildBannerLogo) {
+        this.guildBannerLogo = guildBannerLogo;
     }
 
     public String getGuildTypeId() {
@@ -182,5 +219,30 @@ public class Player {
 
     public void setUpdated(long updated) {
         this.updated = updated;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "allyCode=" + allyCode +
+                ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", level=" + level +
+                ", titles=" + titles +
+                ", guildRefId='" + guildRefId + '\'' +
+                ", guildName='" + guildName + '\'' +
+                ", guildBannerColor='" + guildBannerColor + '\'' +
+                ", getGuildBannerLogo='" + guildBannerLogo + '\'' +
+                ", guildTypeId='" + guildTypeId + '\'' +
+                ", stats=" + Arrays.toString(stats) +
+                ", roster=" + Arrays.toString(roster) +
+                ", arena=" + arena +
+                ", lastActivity=" + lastActivity +
+                ", poUTCOffsetMinutes=" + poUTCOffsetMinutes +
+                ", portraits=" + portraits +
+                ", grandArena=" + Arrays.toString(grandArena) +
+                ", grandArenaLifetime=" + grandArenaLifetime +
+                ", updated=" + updated +
+                '}';
     }
 }

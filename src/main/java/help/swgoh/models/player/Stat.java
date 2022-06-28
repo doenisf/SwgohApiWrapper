@@ -1,5 +1,7 @@
 package help.swgoh.models.player;
 
+import java.math.BigInteger;
+
 /**
  * This class represents a stat associated with a {@link Player}.
  *
@@ -11,7 +13,7 @@ package help.swgoh.models.player;
 public class Stat {
 
     private String nameKey;
-    private int value;
+    private BigInteger value;
     private int index;
 
     public String getNameKey() {
@@ -22,11 +24,11 @@ public class Stat {
         this.nameKey = nameKey;
     }
 
-    public int getValue() {
+    public BigInteger getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(BigInteger value) {
         this.value = value;
     }
 
