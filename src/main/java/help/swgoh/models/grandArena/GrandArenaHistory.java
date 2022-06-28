@@ -1,6 +1,8 @@
 package help.swgoh.models.grandArena;
 
 
+import java.util.Objects;
+
 /**
  * This class represents a {@link help.swgoh.models.player.Player}s stats for one season of grand arena.
  *
@@ -116,5 +118,36 @@ public class GrandArenaHistory {
 
     public void setRank(int rank) {
         this.rank = rank;
+    }
+
+    @Override
+    public String toString() {
+        return "GrandArenaHistory{" +
+                "seasonId='" + seasonId + '\'' +
+                ", eventInstanceId='" + eventInstanceId + '\'' +
+                ", league='" + league + '\'' +
+                ", wins=" + wins +
+                ", losses=" + losses +
+                ", eliteDivision=" + eliteDivision +
+                ", seasonPoints=" + seasonPoints +
+                ", division=" + division +
+                ", joinTime=" + joinTime +
+                ", endTime=" + endTime +
+                ", remove=" + remove +
+                ", rank=" + rank +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GrandArenaHistory that = (GrandArenaHistory) o;
+        return wins == that.wins && losses == that.losses && eliteDivision == that.eliteDivision && seasonPoints == that.seasonPoints && division == that.division && joinTime == that.joinTime && endTime == that.endTime && remove == that.remove && rank == that.rank && Objects.equals(seasonId, that.seasonId) && Objects.equals(eventInstanceId, that.eventInstanceId) && Objects.equals(league, that.league);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(seasonId, eventInstanceId, league, wins, losses, eliteDivision, seasonPoints, division, joinTime, endTime, remove, rank);
     }
 }

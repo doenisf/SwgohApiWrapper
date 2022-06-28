@@ -1,5 +1,8 @@
 package help.swgoh.models.player;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * This class represtens the titles selected and unlocked by a {@link Player}.
  *
@@ -25,5 +28,28 @@ public class Titles {
 
     public void setUnlocked(String[] unlocked) {
         this.unlocked = unlocked;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Titles titles = (Titles) o;
+        return Objects.equals(selected, titles.selected) && Arrays.equals(unlocked, titles.unlocked);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(selected);
+        result = 31 * result + Arrays.hashCode(unlocked);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Titles{" +
+                "selected='" + selected + '\'' +
+                ", unlocked=" + Arrays.toString(unlocked) +
+                '}';
     }
 }

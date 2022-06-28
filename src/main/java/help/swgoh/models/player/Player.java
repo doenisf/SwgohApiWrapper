@@ -1,12 +1,11 @@
 package help.swgoh.models.player;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import help.swgoh.models.arena.PlayerArenaStats;
 import help.swgoh.models.grandArena.GrandArenaHistory;
 import help.swgoh.models.toon.Toon;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * This class represents all data associated with a player in SWGOH.
@@ -33,41 +32,9 @@ public class Player {
     private int poUTCOffsetMinutes;
     private Portraits portraits;
     private GrandArenaHistory[] grandArena;
-    private int grandArenaLifetime;
+    private int grandArenaLifeTime;
     private long updated;
 
-    /*
-    @JsonCreator
-    public Player(int allyCode, String id, String name,
-                  int level, Titles titles, String guildRefId,
-                  String guildName, String guildBannerColor,
-                  String getGuildBannerLogo, String guildTypeId,
-                  Stat[] stats, Toon[] roster, PlayerArenaStats arena,
-                  long lastActivity, int poUTCOffsetMinutes,
-                  Portraits portraits, GrandArenaHistory[] grandArena,
-                  int grandArenaLifetime, long updated) {
-        this.allyCode = allyCode;
-        this.id = id;
-        this.name = name;
-        this.level = level;
-        this.titles = titles;
-        this.guildRefId = guildRefId;
-        this.guildName = guildName;
-        this.guildBannerColor = guildBannerColor;
-        this.getGuildBannerLogo = getGuildBannerLogo;
-        this.guildTypeId = guildTypeId;
-        this.stats = stats;
-        this.roster = roster;
-        this.arena = arena;
-        this.lastActivity = lastActivity;
-        this.poUTCOffsetMinutes = poUTCOffsetMinutes;
-        this.portraits = portraits;
-        this.grandArena = grandArena;
-        this.grandArenaLifetime = grandArenaLifetime;
-        this.updated = updated;
-    }
-
-     */
 
     public int getAllyCode() {
         return allyCode;
@@ -205,12 +172,12 @@ public class Player {
         this.grandArena = grandArena;
     }
 
-    public int getGrandArenaLifetime() {
-        return grandArenaLifetime;
+    public int getGrandArenaLifeTime() {
+        return grandArenaLifeTime;
     }
 
-    public void setGrandArenaLifetime(int grandArenaLifetime) {
-        this.grandArenaLifetime = grandArenaLifetime;
+    public void setGrandArenaLifeTime(int grandArenaLifeTime) {
+        this.grandArenaLifeTime = grandArenaLifeTime;
     }
 
     public long getUpdated() {
@@ -241,8 +208,44 @@ public class Player {
                 ", poUTCOffsetMinutes=" + poUTCOffsetMinutes +
                 ", portraits=" + portraits +
                 ", grandArena=" + Arrays.toString(grandArena) +
-                ", grandArenaLifetime=" + grandArenaLifetime +
+                ", grandArenaLifetime=" + grandArenaLifeTime +
                 ", updated=" + updated +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return allyCode == player.allyCode && level == player.level &&
+                lastActivity == player.lastActivity &&
+                poUTCOffsetMinutes == player.poUTCOffsetMinutes &&
+                grandArenaLifeTime == player.grandArenaLifeTime &&
+                updated == player.updated && Objects.equals(id, player.id) &&
+                Objects.equals(name, player.name) &&
+                Objects.equals(titles, player.titles) &&
+                Objects.equals(guildRefId, player.guildRefId) &&
+                Objects.equals(guildName, player.guildName) &&
+                Objects.equals(guildBannerColor, player.guildBannerColor) &&
+                Objects.equals(guildBannerLogo, player.guildBannerLogo) &&
+                Objects.equals(guildTypeId, player.guildTypeId) &&
+                Arrays.equals(stats, player.stats) &&
+                Arrays.equals(roster, player.roster) &&
+                Objects.equals(arena, player.arena) &&
+                Objects.equals(portraits, player.portraits) &&
+                Arrays.equals(grandArena, player.grandArena);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(allyCode, id, name, level,
+                titles, guildRefId, guildName, guildBannerColor,
+                guildBannerLogo, guildTypeId, arena, lastActivity,
+                poUTCOffsetMinutes, portraits, grandArenaLifeTime, updated);
+        result = 31 * result + Arrays.hashCode(stats);
+        result = 31 * result + Arrays.hashCode(roster);
+        result = 31 * result + Arrays.hashCode(grandArena);
+        return result;
     }
 }

@@ -2,6 +2,9 @@ package help.swgoh.models.toon;
 
 import help.swgoh.models.toon.mod.Mod;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * This class represents a single toon of a {@link help.swgoh.models.player.Player}.
  *
@@ -167,5 +170,44 @@ public class Toon {
     // TODO: implement when needed.
     private static class PrimaryUnitStat {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Toon{" +
+                "id='" + id + '\'' +
+                ", defId='" + defId + '\'' +
+                ", nameKey='" + nameKey + '\'' +
+                ", rarity=" + rarity +
+                ", level=" + level +
+                ", xp=" + xp +
+                ", gear=" + gear +
+                ", equipped=" + Arrays.toString(equipped) +
+                ", combatType=" + combatType +
+                ", skills=" + Arrays.toString(skills) +
+                ", mods=" + Arrays.toString(mods) +
+                ", crew=" + Arrays.toString(crew) +
+                ", gp=" + gp +
+                ", primaryUnitStat=" + primaryUnitStat +
+                ", relic=" + relic +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Toon toon = (Toon) o;
+        return rarity == toon.rarity && level == toon.level && xp == toon.xp && gear == toon.gear && combatType == toon.combatType && gp == toon.gp && Objects.equals(id, toon.id) && Objects.equals(defId, toon.defId) && Objects.equals(nameKey, toon.nameKey) && Arrays.equals(equipped, toon.equipped) && Arrays.equals(skills, toon.skills) && Arrays.equals(mods, toon.mods) && Arrays.equals(crew, toon.crew) && Objects.equals(primaryUnitStat, toon.primaryUnitStat) && Objects.equals(relic, toon.relic);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(id, defId, nameKey, rarity, level, xp, gear, combatType, gp, primaryUnitStat, relic);
+        result = 31 * result + Arrays.hashCode(equipped);
+        result = 31 * result + Arrays.hashCode(skills);
+        result = 31 * result + Arrays.hashCode(mods);
+        result = 31 * result + Arrays.hashCode(crew);
+        return result;
     }
 }

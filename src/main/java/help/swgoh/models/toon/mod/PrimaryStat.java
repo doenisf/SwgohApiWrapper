@@ -1,5 +1,7 @@
 package help.swgoh.models.toon.mod;
 
+import java.util.Objects;
+
 /**
  * This class represents a primary stat of a {@link Mod}.
  *
@@ -25,5 +27,26 @@ public class PrimaryStat {
 
     public void setValue(float value) {
         this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PrimaryStat that = (PrimaryStat) o;
+        return unitStat == that.unitStat && Float.compare(that.value, value) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(unitStat, value);
+    }
+
+    @Override
+    public String toString() {
+        return "PrimaryStat{" +
+                "unitStat=" + unitStat +
+                ", value=" + value +
+                '}';
     }
 }

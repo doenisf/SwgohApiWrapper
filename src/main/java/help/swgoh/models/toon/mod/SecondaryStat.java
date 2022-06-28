@@ -1,5 +1,7 @@
 package help.swgoh.models.toon.mod;
 
+import java.util.Objects;
+
 /**
  * This class represents a secondary stat of a {@link Mod}.
  *
@@ -34,5 +36,27 @@ public class SecondaryStat {
 
     public void setRoll(int roll) {
         this.roll = roll;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SecondaryStat that = (SecondaryStat) o;
+        return unitStat == that.unitStat && Float.compare(that.value, value) == 0 && roll == that.roll;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(unitStat, value, roll);
+    }
+
+    @Override
+    public String toString() {
+        return "SecondaryStat{" +
+                "unitStat=" + unitStat +
+                ", value=" + value +
+                ", roll=" + roll +
+                '}';
     }
 }

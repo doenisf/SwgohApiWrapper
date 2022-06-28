@@ -1,5 +1,7 @@
 package help.swgoh.models.toon;
 
+import java.util.Objects;
+
 /**
  * This class represents a single piece of gear equipped to a {@link Toon}.
  *
@@ -34,5 +36,27 @@ public class Gear {
 
     public void setNameKey(String nameKey) {
         this.nameKey = nameKey;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Gear gear = (Gear) o;
+        return slot == gear.slot && Objects.equals(equipmentId, gear.equipmentId) && Objects.equals(nameKey, gear.nameKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(equipmentId, slot, nameKey);
+    }
+
+    @Override
+    public String toString() {
+        return "Gear{" +
+                "equipmentId='" + equipmentId + '\'' +
+                ", slot=" + slot +
+                ", nameKey='" + nameKey + '\'' +
+                '}';
     }
 }

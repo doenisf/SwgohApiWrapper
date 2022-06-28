@@ -2,6 +2,8 @@ package help.swgoh.models.toon;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Objects;
+
 /**
  * This class represents a single skill/ability of a {@link Toon}.
  *
@@ -55,5 +57,29 @@ public class Skill {
 
     public void setTiers(int tiers) {
         this.tiers = tiers;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Skill skill = (Skill) o;
+        return tier == skill.tier && isZeta == skill.isZeta && tiers == skill.tiers && Objects.equals(id, skill.id) && Objects.equals(nameKey, skill.nameKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, tier, nameKey, isZeta, tiers);
+    }
+
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "id='" + id + '\'' +
+                ", tier=" + tier +
+                ", nameKey='" + nameKey + '\'' +
+                ", isZeta=" + isZeta +
+                ", tiers=" + tiers +
+                '}';
     }
 }

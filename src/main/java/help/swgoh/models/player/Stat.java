@@ -1,6 +1,7 @@
 package help.swgoh.models.player;
 
 import java.math.BigInteger;
+import java.util.Objects;
 
 /**
  * This class represents a stat associated with a {@link Player}.
@@ -38,5 +39,27 @@ public class Stat {
 
     public void setIndex(int index) {
         this.index = index;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Stat stat = (Stat) o;
+        return index == stat.index && Objects.equals(nameKey, stat.nameKey) && Objects.equals(value, stat.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameKey, value, index);
+    }
+
+    @Override
+    public String toString() {
+        return "Stat{" +
+                "nameKey='" + nameKey + '\'' +
+                ", value=" + value +
+                ", index=" + index +
+                '}';
     }
 }
