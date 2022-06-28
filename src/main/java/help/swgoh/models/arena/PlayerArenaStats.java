@@ -1,5 +1,7 @@
 package help.swgoh.models.arena;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 /**
  * This class represents a {@link help.swgoh.models.player.Player}s current stats for character and ship arena.
  *
@@ -8,6 +10,7 @@ package help.swgoh.models.arena;
  */
 public class PlayerArenaStats {
 
+    @JsonAlias({"char"})
     private ArenaStat arenaStat;
     private ArenaStat ship;
 
