@@ -1,11 +1,14 @@
 package help.swgoh.models.toon;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * This class represents a single skill/ability of a {@link Toon}.
  *
  * @since 1.0.0
  * @author doenisf
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Skill {
 
     private String id;
