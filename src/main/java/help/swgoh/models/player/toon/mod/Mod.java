@@ -1,4 +1,4 @@
-package help.swgoh.models.toon.mod;
+package help.swgoh.models.player.toon.mod;
 
 import java.util.Arrays;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package help.swgoh.models.grandArena;
+package help.swgoh.models.player.grandArena;
 
 
 import java.util.Objects;

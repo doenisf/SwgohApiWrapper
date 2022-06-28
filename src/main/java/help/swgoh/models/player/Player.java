@@ -1,8 +1,8 @@
 package help.swgoh.models.player;
 
-import help.swgoh.models.arena.PlayerArenaStats;
-import help.swgoh.models.grandArena.GrandArenaHistory;
-import help.swgoh.models.toon.Toon;
+import help.swgoh.models.player.arena.PlayerArenaStats;
+import help.swgoh.models.player.grandArena.GrandArenaHistory;
+import help.swgoh.models.player.toon.Toon;
 
 import java.util.Arrays;
 import java.util.Objects;

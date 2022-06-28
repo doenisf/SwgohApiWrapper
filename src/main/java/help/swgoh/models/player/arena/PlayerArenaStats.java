@@ -1,4 +1,4 @@
-package help.swgoh.models.arena;
+package help.swgoh.models.player.arena;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 

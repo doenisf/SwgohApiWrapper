@@ -1,6 +1,6 @@
-package help.swgoh.models.toon;
+package help.swgoh.models.player.toon;
 
-import help.swgoh.models.toon.mod.Mod;
+import help.swgoh.models.player.toon.mod.Mod;
 
 import java.util.Arrays;
 import java.util.Objects;

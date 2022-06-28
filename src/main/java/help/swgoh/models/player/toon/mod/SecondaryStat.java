@@ -1,17 +1,18 @@
-package help.swgoh.models.toon.mod;
+package help.swgoh.models.player.toon.mod;
 
 import java.util.Objects;
 
 /**
- * This class represents a primary stat of a {@link Mod}.
+ * This class represents a secondary stat of a {@link Mod}.
  *
  * @since 1.0.0
  * @author doenisf
  */
-public class PrimaryStat {
+public class SecondaryStat {
 
     private int unitStat;
     private float value;
+    private int roll;
 
     public int getUnitStat() {
         return unitStat;
@@ -29,24 +30,33 @@ public class PrimaryStat {
         this.value = value;
     }
 
+    public int getRoll() {
+        return roll;
+    }
+
+    public void setRoll(int roll) {
+        this.roll = roll;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PrimaryStat that = (PrimaryStat) o;
-        return unitStat == that.unitStat && Float.compare(that.value, value) == 0;
+        SecondaryStat that = (SecondaryStat) o;
+        return unitStat == that.unitStat && Float.compare(that.value, value) == 0 && roll == that.roll;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(unitStat, value);
+        return Objects.hash(unitStat, value, roll);
     }
 
     @Override
     public String toString() {
-        return "PrimaryStat{" +
+        return "SecondaryStat{" +
                 "unitStat=" + unitStat +
                 ", value=" + value +
+                ", roll=" + roll +
                 '}';
     }
 }

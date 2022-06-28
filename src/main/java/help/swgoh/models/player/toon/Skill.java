@@ -1,4 +1,4 @@
-package help.swgoh.models.toon;
+package help.swgoh.models.player.toon;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
