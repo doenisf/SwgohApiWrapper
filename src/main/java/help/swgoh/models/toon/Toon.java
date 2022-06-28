@@ -5,8 +5,8 @@ import help.swgoh.models.toon.mod.Mod;
 /**
  * This class represents a single toon of a {@link help.swgoh.models.player.Player}.
  *
- * @since 1.0.0
  * @author doenisf
+ * @since 1.0.0
  */
 public class Toon {
 
@@ -21,6 +21,10 @@ public class Toon {
     private int combatType;
     private Skill[] skills;
     private Mod[] mods;
+    private CrewMember[] crew;
+    private int gp;
+    private PrimaryUnitStat primaryUnitStat;
+    private Relic relic;
 
     public String getId() {
         return id;
@@ -108,5 +112,60 @@ public class Toon {
 
     public void setMods(Mod[] mods) {
         this.mods = mods;
+    }
+
+    public CrewMember[] getCrew() {
+        return crew;
+    }
+
+    public void setCrew(CrewMember[] crew) {
+        this.crew = crew;
+    }
+
+    public int getGp() {
+        return gp;
+    }
+
+    public void setGp(int gp) {
+        this.gp = gp;
+    }
+
+    public PrimaryUnitStat getPrimaryUnitStat() {
+        return primaryUnitStat;
+    }
+
+    public void setPrimaryUnitStat(PrimaryUnitStat primaryUnitStat) {
+        this.primaryUnitStat = primaryUnitStat;
+    }
+
+    public Relic getRelic() {
+        return relic;
+    }
+
+    public void setRelic(Relic relic) {
+        this.relic = relic;
+    }
+
+    /**
+     * Represents the relic level of the {@link Toon}.
+     */
+    private static class Relic {
+        int currentTier;
+
+        public int getCurrentTier() {
+            return currentTier;
+        }
+
+        public void setCurrentTier(int currentTier) {
+            this.currentTier = currentTier;
+        }
+    }
+
+    /**
+     * Currently not known what it is used for.
+     */
+    // TODO: implement when needed.
+    private static class PrimaryUnitStat {
+
     }
 }
